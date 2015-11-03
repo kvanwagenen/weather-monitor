@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @weather.time %>
+</p>
+
+<p>
+  <strong>Indoor temp:</strong>
+  <%= @weather.indoor_temp %>
+</p>
+
+<p>
+  <strong>Outdoor temp:</strong>
+  <%= @weather.outdoor_temp %>
+</p>
+
+<p>
+  <strong>Dewpoint:</strong>
+  <%= @weather.dewpoint %>
+</p>
+
+<p>
+  <strong>Wind speed:</strong>
+  <%= @weather.wind_speed %>
+</p>
+
+<p>
+  <strong>Relative rain:</strong>
+  <%= @weather.relative_rain %>
+</p>
+
+<p>
+  <strong>Wind direction:</strong>
+  <%= @weather.wind_direction %>
+</p>
+
+<p>
+  <strong>Indoor humidity:</strong>
+  <%= @weather.indoor_humidity %>
+</p>
+
+<p>
+  <strong>Outdoor humidity:</strong>
+  <%= @weather.outdoor_humidity %>
+</p>
+
+<p>
+  <strong>Relative pressure:</strong>
+  <%= @weather.relative_pressure %>
+</p>
+
+<p>
+  <strong>Wind chill:</strong>
+  <%= @weather.wind_chill %>
+</p>
+
+<p>
+  <strong>Gust speed:</strong>
+  <%= @weather.gust_speed %>
+</p>
+
+<p>
+  <strong>Total rain:</strong>
+  <%= @weather.total_rain %>
+</p>
+
+<%= link_to 'Edit', edit_weather_path(@weather) %> |
+<%= link_to 'Back', weathers_path %>

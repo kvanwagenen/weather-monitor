@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Weathers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Indoor temp</th>
+      <th>Outdoor temp</th>
+      <th>Dewpoint</th>
+      <th>Wind speed</th>
+      <th>Relative rain</th>
+      <th>Wind direction</th>
+      <th>Indoor humidity</th>
+      <th>Outdoor humidity</th>
+      <th>Relative pressure</th>
+      <th>Wind chill</th>
+      <th>Gust speed</th>
+      <th>Total rain</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weathers.each do |weather| %>
+      <tr>
+        <td><%= weather.time %></td>
+        <td><%= weather.indoor_temp %></td>
+        <td><%= weather.outdoor_temp %></td>
+        <td><%= weather.dewpoint %></td>
+        <td><%= weather.wind_speed %></td>
+        <td><%= weather.relative_rain %></td>
+        <td><%= weather.wind_direction %></td>
+        <td><%= weather.indoor_humidity %></td>
+        <td><%= weather.outdoor_humidity %></td>
+        <td><%= weather.relative_pressure %></td>
+        <td><%= weather.wind_chill %></td>
+        <td><%= weather.gust_speed %></td>
+        <td><%= weather.total_rain %></td>
+        <td><%= link_to 'Show', weather %></td>
+        <td><%= link_to 'Edit', edit_weather_path(weather) %></td>
+        <td><%= link_to 'Destroy', weather, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weather', new_weather_path %>

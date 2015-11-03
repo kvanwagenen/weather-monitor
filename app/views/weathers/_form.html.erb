@@ -1,0 +1,69 @@
+<%= form_for(@weather) do |f| %>
+  <% if @weather.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weather.errors.count, "error") %> prohibited this weather from being saved:</h2>
+
+      <ul>
+      <% @weather.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.datetime_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :indoor_temp %><br>
+    <%= f.text_field :indoor_temp %>
+  </div>
+  <div class="field">
+    <%= f.label :outdoor_temp %><br>
+    <%= f.text_field :outdoor_temp %>
+  </div>
+  <div class="field">
+    <%= f.label :dewpoint %><br>
+    <%= f.text_field :dewpoint %>
+  </div>
+  <div class="field">
+    <%= f.label :wind_speed %><br>
+    <%= f.text_field :wind_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :relative_rain %><br>
+    <%= f.text_field :relative_rain %>
+  </div>
+  <div class="field">
+    <%= f.label :wind_direction %><br>
+    <%= f.text_field :wind_direction %>
+  </div>
+  <div class="field">
+    <%= f.label :indoor_humidity %><br>
+    <%= f.text_field :indoor_humidity %>
+  </div>
+  <div class="field">
+    <%= f.label :outdoor_humidity %><br>
+    <%= f.text_field :outdoor_humidity %>
+  </div>
+  <div class="field">
+    <%= f.label :relative_pressure %><br>
+    <%= f.text_field :relative_pressure %>
+  </div>
+  <div class="field">
+    <%= f.label :wind_chill %><br>
+    <%= f.text_field :wind_chill %>
+  </div>
+  <div class="field">
+    <%= f.label :gust_speed %><br>
+    <%= f.text_field :gust_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :total_rain %><br>
+    <%= f.text_field :total_rain %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
