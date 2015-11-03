@@ -65,32 +65,12 @@ class ImagesController < ApplicationController
   
     def upload_image
       if data = image_data
-        # source = Magick::Image.from_blob(Base64.decode64(data)).first
-        # source.add_profile(Rails.root + 'config/iccprofiles/srgb.icc')
-        # x, y = source.columns, source.rows
-        # max_dim = 1920
-    
-        # sizes = [{min: 0, resize: max_dim, quality: 100}]
         hash = Digest::MD5.hexdigest(Base64::decode64(data))
-    
-        # output = source.extent(max_dim,max_dim,-((max_dim-x)/2).ceil,-((max_dim-y)/2).ceil)
-        # output.strip!
-        # output.format = 'JPG'
-    
         credentials = Aws::Credentials.new(Setting.find_by_key('aws_access_key_id').value, Setting.find_by_key('aws_secret_access_key').value)
         s3 = Aws::S3::Client.new(region: 'us-east-1', credentials: credentials)
-    
-        # sizes.each do |size|
-        #   if max_dim >= size[:min]
-        #     new_size = (size[:resize] || size[:min])
-        #     sized_image = output.resize(new_size,new_size)
-        #     sized_image.format = 'JPG'
-            # s3.put_object(acl: 'public-read', bucket: 'images.ziggos.com', body: sized_image.to_blob{self.quality = (size[:quality] || 70)}, key: "weather-images/#{hash}.jpg")
         bucket = 'static.ziggos.com'
         key = "weather-images/#{hash}.jpg"
         s3.put_object(acl: 'public-read', bucket: bucket, body: Base64::decode64(data), key: key)
-          # end
-        # end
         @image.url = "http://#{bucket}/#{key}"
       end
     end
